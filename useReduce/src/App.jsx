@@ -3,7 +3,8 @@ import TodoElement from "./TodoElement"
 
 const ACTIONS = {
     ADD_TODO: 'add_todo',
-    TOGGLE_TODO: 'toggle'
+    TOGGLE_TODO: 'toggle',
+    DELETE_TODO: 'delete_todo'
 }
 
 function App() {
@@ -18,6 +19,10 @@ function App() {
           }
           return todo
         })
+      case ACTIONS.DELETE_TODO:
+        return todos.filter(todo => todo.id !== action.payload.id)
+      default:
+        return dotos
     }
   }
 
