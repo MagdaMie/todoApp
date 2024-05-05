@@ -12,7 +12,12 @@ function App() {
       case ACTIONS.ADD_TODO:
         return [...todos, newTodo(action.payload.name)]
       case ACTIONS.TOGGLE_TODO:
-        return 
+        return todos.map(todo => {
+          if(todo.id === action.payload.id) {
+            return {...todo, completed: !todo.completed}
+          }
+          return todo
+        })
     }
   }
 
@@ -46,10 +51,13 @@ function App() {
     id={todo.id}
     key={todo.id}
     name={todo.name}
-    completed={todo.completed}/>)
+    completed={todo.completed}
+    dispatch={dispatch}/>)
     }
     </>
   )
 }
 
 export default App
+
+export { ACTIONS}
