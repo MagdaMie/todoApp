@@ -22,7 +22,7 @@ function App() {
       case ACTIONS.DELETE_TODO:
         return todos.filter(todo => todo.id !== action.payload.id)
       default:
-        return dotos
+        return todos
     }
   }
 
